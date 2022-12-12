@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS HandsOn-9</title>
+</head>
+<style>
+  h2{
+    text-align: center;
+    text-decoration: underline;
+  }
+  pre{
+    font-size: 20px;
+    color: brown;
+  }
+</style>
+
+<h2>JS HandsOn-9(Maps and Sets)</h2>
+
+   "Problem:
+   <p><b>1.  You are given a string (STR) of length N, consisting of only the lower case English alphabet.
+    Your task is to remove all the duplicate occurrences of characters in the string.</b></p>
+    Input:
+    abcadeecfb</p>
+    Output:
+    abcdef"
+    </p>
+    <pre>
+      function removeDuplicate(str, n)
+    {
+      var index = 0;
+      for (var i = 0; i < n; i++)
+      {
+        var j;
+        for (j = 0; j < i; j++)
+        {
+         if (str[i] == str[j])
+         {
+           break;
+         }
+        }
+        if (j == i)
+        {
+          str[index++] = str[i];
+        }
+      }
+         
+     return str.join("").slice(str, index);
+    }
+   var str = "abcadeecfb".split("");
+   var n = str.length;
+   console.log(removeDuplicate(str, n));
+  </pre>
+
+
+
+
+  <p><b>2. You are given a string (STR) of length N, you have to print the count of all alphabet.(using maps)</b></b2.></p>
+    Input:
+    abcadeecfb <br>
+    Output:
+    a=2
+    b=2
+    c=2
+    d=1
+    e=2
+    f=1
+
+    <pre>
+      let SIZE = 26;
+    function printCharWithFreq(str)
+    {
+        let n = str.length;
+  
+        let freq = new Array(SIZE);
+        for(let i = 0; i < freq.length; i++)
+        {
+            freq[i] = 0;
+        }
+        for (let i = 0; i < n; i++)
+            freq[str[i].charCodeAt(0) - 'a'.charCodeAt(0)]++;
+  
+        for (let i = 0; i < n; i++) {
+  
+            if (freq[str[i].charCodeAt(0) - 'a'.charCodeAt(0)] != 0) {
+  
+                document.write(str[i]);
+                document.write(freq[str[i].charCodeAt(0) - 'a'.charCodeAt(0)] + " ");
+  
+                freq[str[i].charCodeAt(0) - 'a'.charCodeAt(0)] = 0;
+            }
+        }
+    }
+let str = "abcadeecfb";
+printCharWithFreq(str);
+
+    </pre>
+
+    <script src="main.js"></script>
+</body>
+</html>
